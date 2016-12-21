@@ -1,8 +1,14 @@
+0.3.7/ 2016-12-21
+==================
+  * Removed ingore_conflicts param
+  * Add env var ELASTICSEARCH_LOGGING
+  * Add env var ELASTICSEARCH_TRACE
+
 0.3.6 / 2016-11-27
 ==================
   * Update api version to 5.0
   * Update Elasticsearch lib
-  
+
 0.3.2 / 2016-07-05
 ==================
   * Add String/not_analyzed test
