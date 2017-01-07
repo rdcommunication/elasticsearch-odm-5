@@ -126,6 +126,10 @@ function model(modelName, schema) {
 
   // create a neweable function object.
   function modelInstance(data) {
+
+
+    // console.log(data, 'DATA');
+
     var self = this;
     // Add any user supplied schema instance methods.
     if (schema) {
