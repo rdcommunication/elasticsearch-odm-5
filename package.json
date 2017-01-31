@@ -1,6 +1,6 @@
 {
   "name": "elasticsearch-odm-5",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Like Mongoose but for Elasticsearch 5.x. Define models, preform CRUD operations, and build advanced search queries.",
   "main": "index.js",
   "scripts": {
