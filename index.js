@@ -19,9 +19,10 @@ logger.transports.console.silent = (process.env.NODE_ENV !== 'development');
 var db = {
   host: 'localhost:9200',
   index: '',
-  logging: process.env.NODE_ENV === 'development',
+  logging: process.env.ELASTICSEARCH_LOGGING,
   client: {},
-  models: {}
+  models: {},
+  trace: process.env.ELASTICSEARCH_TRACE
 };
 
 var CONNECTED = false;
@@ -33,7 +34,6 @@ var handleMappingQueue = function () {
     return db.client.indices.putMapping({
       index: db.index,
       type: v.type,
-      ignore_conflicts: true,
       body: v.mapping
     });
   });
@@ -126,6 +126,7 @@ function model(modelName, schema) {
 
   // create a neweable function object.
   function modelInstance(data) {
+
     var self = this;
     // Add any user supplied schema instance methods.
     if (schema) {
@@ -167,7 +168,6 @@ function model(modelName, schema) {
       db.client.indices.putMapping({
         index: db.index,
         type: modelInstance.model.type,
-        ignore_conflicts: true,
         body: mapping
       });
       //TODO : setup promise or sync call to putMapping to avoid an error if an insertion comes just after

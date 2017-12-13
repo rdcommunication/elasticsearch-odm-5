@@ -2,10 +2,10 @@ Elasticsearch ODM
 =========
 
 [![Join the chat at https://gitter.im/bloublou2014/elasticsearch-odm](https://badges.gitter.im/bloublou2014/elasticsearch-odm.svg)](https://gitter.im/bloublou2014/elasticsearch-odm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![npm version](https://badge.fury.io/js/elasticsearch-odm.svg)](http://badge.fury.io/js/elasticsearch-odm)
-[![Build Status](https://travis-ci.org/bloublou2014/elasticsearch-odm.svg)](https://travis-ci.org/bloublou2014/elasticsearch-odm)
-[![Dependency Status](https://david-dm.org/bloublou2014/elasticsearch-odm.svg)](https://david-dm.org/bloublou2014/elasticsearch-odm)
-[![Dev Dependency Status](https://david-dm.org/bloublou2014/elasticsearch-odm/dev-status.svg)](https://david-dm.org/bloublou2014/elasticsearch-odm#info=devDependencies)
+[![npm version](https://badge.fury.io/js/elasticsearch-odm-2.svg)](http://badge.fury.io/js/elasticsearch-odm-2)
+[![Build Status](https://travis-ci.org/bloublou2014/elasticsearch-odm.svg?branch=es-2.x)](https://travis-ci.org/bloublou2014/elasticsearch-odm)
+[![Dependency Status](https://david-dm.org/bloublou2014/elasticsearch-odm/es-2.x.svg)](https://david-dm.org/bloublou2014/elasticsearch-odm/es-2.x)
+[![Dev Dependency Status](https://david-dm.org/bloublou2014/elasticsearch-odm/es-2.x/dev-status.svg)](https://david-dm.org/bloublou2014/elasticsearch-odm/es-2.x#info=devDependencies)
 
 ***Like Mongoose but for Elasticsearch.*** Define models, preform CRUD operations, and build advanced search queries. Most commands and functionality that exist in Mongoose exist in this library. All asynchronous functions use Bluebird Promises instead of callbacks.
 
@@ -17,7 +17,7 @@ This is currently the only ODM/ORM library that exists for Elasticsearch on Node
 If you currently have [npm elasticsearch](https://www.npmjs.com/package/elasticsearch) installed, you can remove it and access it from [client](client---elasticsearch) in this library if you still need it.
 
 ```sh
-$ npm install bloublou2014/elasticsearch-odm
+$ npm install elasticsearch-odm-2
 ```
 
 ### Features
@@ -34,7 +34,7 @@ You'll find the API is intuitive if you've used Mongoose or Waterline.
 Example (no schema):
 
 ```js
-var esodm = require('elasticsearch-odm');
+var esodm = require('elasticsearch-odm-2');
 var Car = esodm.model('Car');
 var car = new Car({
   type: 'Ford', color: 'Black'
@@ -49,7 +49,7 @@ esodm.connect('my-index').then(function(){
 Example (using a [schema](#schemas)):
 
 ```js
-var esodm = require('elasticsearch-odm');
+var esodm = require('elasticsearch-odm-2');
 var carSchema = new esodm.Schema({
   type: String,
   color: {type: String, required: true}
@@ -115,7 +115,7 @@ Example:
 
 ```js
 // when bootstrapping your application
-var esodm = require('elasticsearch-odm');
+var esodm = require('elasticsearch-odm-2');
 
 esodm.connect({
   host: 'localhost:9200',
@@ -148,7 +148,7 @@ Example:
 
 ```js
 // when bootstrapping your application
-var esodm = require('elasticsearch-odm');
+var esodm = require('elasticsearch-odm-2');
 
 esodm.connect('my-index')
   .then(function(){
@@ -189,7 +189,7 @@ Note : In order to access document just after insertion you must add `{refresh: 
 
 Example :
 ```js
-var esodm = require('elasticsearch-odm');
+var esodm = require('elasticsearch-odm-2');
 var Car = esodm.model('Car');
 var car = new Car({
   type: 'Ford', color: 'Black'
